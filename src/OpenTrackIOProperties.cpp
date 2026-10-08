@@ -131,13 +131,13 @@ namespace opentrackio::opentrackioproperties
         {
             if (!gsJson.contains(fieldStr))
             {
-                errors.emplace_back(std::format("field: globalStage is missing require field: {}", fieldStr));
+                errors.emplace_back(fmt::format("field: globalStage is missing require field: {}", fieldStr));
                 return false;
             }
 
             if (!gsJson.at(fieldStr).is_number())
             {
-                errors.emplace_back(std::format("field: globalStage is not a number: {}", fieldStr));
+                errors.emplace_back(fmt::format("field: globalStage is not a number: {}", fieldStr));
                 return false;
             }
 
@@ -311,7 +311,7 @@ namespace opentrackio::opentrackioproperties
 
         if (!proJson.contains("name"))
         {
-            errors.emplace_back(std::format("field: protocol is missing a require field: name"));
+            errors.emplace_back(fmt::format("field: protocol is missing a require field: name"));
             return std::nullopt;
         }
 

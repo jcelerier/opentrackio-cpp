@@ -40,6 +40,7 @@ set (
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 find_package(nlohmann_json REQUIRED)
+find_package(fmt CONFIG REQUIRED)
 
 # Build static library if requested, otherwise build shared
 if(BUILD_STATIC_LIBS)
@@ -80,7 +81,7 @@ target_include_directories(
             
 )
 
-target_link_libraries(${PROJECT_NAME} PUBLIC nlohmann_json::nlohmann_json)
+target_link_libraries(${PROJECT_NAME} PUBLIC nlohmann_json::nlohmann_json fmt::fmt)
 
 install(TARGETS ${PROJECT_NAME}
         EXPORT ${PROJECT_NAME}Targets

@@ -12,7 +12,7 @@
  */
 
 #pragma once
-#include <format>
+#include <fmt/format.h>
 #include <regex>
 #include <nlohmann/json.hpp>
 
@@ -124,7 +124,7 @@ namespace opentrackio
             {
                 if (!json[fieldStr].is_string())
                 {
-                    errors.emplace_back(std::format("field: {} isn't of type: string", fieldStr));
+                    errors.emplace_back(fmt::format("field: {} isn't of type: string", fieldStr));
                     field = std::nullopt;
                     return;
                 }
@@ -133,7 +133,7 @@ namespace opentrackio
 
                 if (std::smatch res; !std::regex_match(field.value(), res, pattern))
                 {
-                    errors.emplace_back(std::format("field: {} doesn't match the required pattern", fieldStr));
+                    errors.emplace_back(fmt::format("field: {} doesn't match the required pattern", fieldStr));
                     field = std::nullopt;
                     return;
                 }
